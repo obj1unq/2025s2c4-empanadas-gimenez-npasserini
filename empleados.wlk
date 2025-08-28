@@ -13,3 +13,13 @@ object baigorria {
 
   method sueldo() = empanadasVendidas * sueldoPorEmpanada
 }
+
+object gimenez {
+  var fondo = 300000
+
+  method fondo() = fondo
+
+  method pagarSueldo(empleado) {
+    fondo -= empleado.sueldo()
+  }
+}

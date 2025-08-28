@@ -24,6 +24,11 @@ describe "Baigorria" {
   }
 }
 
+describe "Gimenez" {
+  test "Arranca con 300 lucas" {
+    assert.equals(300000, gimenez.fondo())
+  }
+}
 describe "punto1: Planteo inicial" {
   method initialize() {
     baigorria.vender(500)
