@@ -1,16 +1,31 @@
 import empleados.*
 
-test "punto1: Planteo inicial" {
+describe "Galvan" {
+  test "El sueldo de Galvan arranca en 15000" {
+    assert.equals(15000, galvan.sueldo())
+  }
 
-  baigorria.vender(500)
-  galvan.sueldo(20000)
-  baigorria.vender(300)
-  assert.equals(12000, baigorria.sueldo())
-  assert.equals(20000, galvan.sueldo())
-  
-  gimenez.pagarSueldo(baigorria)
-  gimenez.pagarSueldo(galvan)
-  assert.equals(268000, gimenez.fondo())
-  
+  test "Le cambio el sueldo a Galvan y se acuerda" {
+    galvan.sueldo(20000)
+    assert.equals(20000, galvan.sueldo())
+  }
 }
 
+describe "punto1: Planteo inicial" {
+  method initialize() {
+    baigorria.vender(500)
+    galvan.sueldo(20000)
+    baigorria.vender(300)    
+  }
+
+  test "Al registrar 800 ventas el sueldo de baigorria es 12000" {
+    assert.equals(12000, baigorria.sueldo())
+    assert.equals(20000, galvan.sueldo())
+  }
+
+  test "Al pagar los sueldos baja el fondo de Gimenez" { 
+    gimenez.pagarSueldo(baigorria)
+    gimenez.pagarSueldo(galvan)
+    assert.equals(268000, gimenez.fondo())  
+  }
+}
